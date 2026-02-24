@@ -13,17 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!empty($name) && !empty($email)) {
 
-
-        // Save session
         $_SESSION['name'] = $name;
         $_SESSION['email'] = $email;
 
-
-        // Save/update cookie for 1 hour, accessible site-wide
         setcookie("username", $name, time() + 3600, "/");
 
-
-        // Redirect to dashboard
         header("Location: dashboard.php");
         exit();
     } else {
@@ -73,8 +67,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 5px;
             border: 1px solid #ccc;
         }
-
-
         input[type="submit"] {
             width: 100%;
             padding: 10px;
@@ -108,22 +100,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 
-
 <div class="card">
     <h2>Login Form</h2>
-
-
     <?php if (isset($error)) { echo "<p class='error'>$error</p>"; } ?>
-
-
     <form method="POST">
         <input type="text" name="name" placeholder="Enter your name">
         <input type="email" name="email" placeholder="Enter your email">
         <input type="submit" value="Login">
     </form>
-
-
-    <div class="footer">PHP Authentication Demo</div>
+    <div class="footer">PHP Authentication</div>
 </div>
 
 
