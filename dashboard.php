@@ -1,11 +1,9 @@
 <?php
 session_start();
-// Restrict access if session doesn't exist
 if (!isset($_SESSION['name']) || !isset($_SESSION['email'])) {
     header("Location: form.php");
     exit();
 }
-// Update cookie to match current session
 setcookie("username", $_SESSION['name'], time() + 3600, "/");
 ?>
 <!DOCTYPE html>
@@ -22,7 +20,6 @@ setcookie("username", $_SESSION['name'], time() + 3600, "/");
             height: 100vh;
             margin: 0;
         }
-
         .dashboard-card {
             background: white;
             padding: 40px;
@@ -31,7 +28,6 @@ setcookie("username", $_SESSION['name'], time() + 3600, "/");
             text-align: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
-
         h2 {
             margin-bottom: 20px;
             color: #333;
@@ -40,12 +36,10 @@ setcookie("username", $_SESSION['name'], time() + 3600, "/");
             margin: 10px 0;
             font-size: 16px;
         }
-
         .highlight {
             color: #4e73df;
             font-weight: bold;
         }
-
         .logout-btn {
             display: inline-block;
             margin-top: 20px;
@@ -56,15 +50,12 @@ setcookie("username", $_SESSION['name'], time() + 3600, "/");
             border-radius: 5px;
             transition: 0.3s;
         }
-
         .logout-btn:hover {
             background-color: #c0392b;
         }
     </style>
 </head>
 <body>
-
-
 <div class="dashboard-card">
     <h2>Welcome!</h2>
     <div class="info">Name: <span class="highlight"><?php echo $_SESSION['name']; ?></span></div>
@@ -74,8 +65,5 @@ setcookie("username", $_SESSION['name'], time() + 3600, "/");
     <?php endif; ?>
     <a href="form.php" class="logout-btn">Logout</a>
 </div>
-
 </body>
 </html>
-
-
