@@ -1,1 +1,1 @@
-# Basic-Authentication-in-PHP-Using-Forms-Sessions-and-Cookies-XAMPP-
+# Basic Authentication in PHP Using Forms Sessions and Cookies (XAMPP)
